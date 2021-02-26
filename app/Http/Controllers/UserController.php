@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
@@ -19,9 +20,18 @@ class UserController extends Controller
     }
 
     public function profile(int $id) {
+        $is_connected = Auth::id() === $id;
+        if ($is_connected)
+            $connected_user = Auth::user();
         $user = User::find($id);
         $grav_url = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email))) . "?d=mp&s=80&r=g";
-        return view('user.profile', ['user' => $user, 'grav_url' => $grav_url, 'active' => 'user']);
+        
+        return view('user.profile', [
+            'user' => $user, 
+            'is_connected' => $is_connected,
+            'connected_user' => $connected_user,
+            'grav_url' => $grav_url, 
+            'active' => 'user']);
     }
 
     public function edit(int $id)

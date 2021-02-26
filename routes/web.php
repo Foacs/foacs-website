@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TokenController;
 
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
@@ -44,5 +45,10 @@ Route::get('/users/{id}', [UserController::class, 'profile'])
     ->name('profile.show');
 Route::get('/users/edit/{id}', [UserController::class, 'edit'])
     ->middleware('auth')->name('profile.edit');
+
+Route::post('/tokens/create', [TokenController::class, 'createToken'])
+    ->middleware('auth')->name('token.create');
+Route::post('/tokens/delete', [TokenController::class, 'deleteToken'])
+    ->middleware('auth')->name('token.delete');    
 
 require __DIR__.'/auth.php';
