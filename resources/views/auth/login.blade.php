@@ -40,12 +40,9 @@
         <br>
         <a href="{{ route('home') }}" class="ui fluid large button">Annuler</a>
     </div>
-    @error('email')
-        <div>{{ $message }}</div>
-    @enderror
 </form>
 <div class="ui message">
     Nouveau ? <a href="{{ route('auth.register') }}">S'inscrire</a><br />
-    <a href="{{ route('password.request') }}">Mot de passe oublié</a>
+    <a href="{{ route('password.forgot') }}">Mot de passe oublié</a>
 </div>
 @endsection

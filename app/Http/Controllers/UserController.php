@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
@@ -16,26 +18,52 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('user.index', ['users' => $users, 'active' => 'user']);
+        return view('user.index', ['users' => $users, 'active' => 'users']);
     }
 
     public function profile(int $id) {
         $is_connected = Auth::id() === $id;
-        if ($is_connected)
-            $connected_user = Auth::user();
+        
+        $connected_user = Auth::user();
+        
         $user = User::find($id);
-        $grav_url = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email))) . "?d=mp&s=80&r=g";
         
         return view('user.profile', [
             'user' => $user, 
-            'is_connected' => $is_connected,
             'connected_user' => $connected_user,
-            'grav_url' => $grav_url, 
-            'active' => 'user']);
+            'active' => 'users',
+            'mode' => 'show'
+            ]);
     }
 
-    public function edit(int $id)
+    public function edit(Request $request, User $user)
     {
-        return "Comming soon";
+        
+        return view('user.profile', [
+            'user' => $user, 
+            'connected_user' => Auth::user(),
+            'active' => 'users',
+            'mode' => 'edit'
+            ]);
     }
+
+    public function save(Request $request, User $user)
+    {
+        $request->validate([
+            'phone_number' => 'regex:/^[0-9\-]+$/'
+        ]);
+
+        $user->fill($request->all())->save();
+        return redirect()->route('profile.show', $user->id)->with('success', 'Profile modifié');
+    }
+
+    public function delete(Request $request, User $user) 
+    {
+        $user->delete();
+
+        session()->flash('success', 'Utilisateur supprimé.');
+        session()->flash('success-title', 'L\'utilisateur a été supprimé');
+        return back();
+    }
+
 }

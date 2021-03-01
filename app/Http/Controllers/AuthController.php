@@ -58,6 +58,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
         event(new Registered($user));
+        Auth::login($user);
         session()->flash('success', 'Votre compte a été créé.');
         session()->flash('success-title', 'Compte créé.');
         return redirect()->route('auth.login');
@@ -72,7 +73,7 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         session()->flash('success', 'Vous êtes déconnecté.');
-        return redirect()->route('home');
+        return back();
     }
 
     public function emailVerify(Request $request)
@@ -101,7 +102,7 @@ class AuthController extends Controller
     public function verificationNotification(Request $request)
     {
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->route('home');
         }
 
         $request->user()->sendEmailVerificationNotification();
@@ -128,19 +129,38 @@ class AuthController extends Controller
                     : back()->withErrors(['email' => __($status)]);
     }
 
+    public function passwordChange(Request $request, User $user)
+    {
+        return view('auth.change-password', ['user' => $user]);
+    }
+
+    public function passwordChangeStore(Request $request, User $user)
+    {
+        $request->validate([
+            'current_password' => 'required|password',
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('profile.show',  $user)->with('success', 'Le mot de passe a été modifié.');
+    }
+
     public function passwordReset($token)
     {
+        var_dump(session()->get('errors'));
         return view('auth.reset-password', ['token' => $token]);
     }
 
-    public function passwordUpdate(Request $request) 
+    public function passwordResetStore(Request $request) 
     {
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8|confirmed',
-        ]);
-
+            ]);
+            
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) use ($request) {
@@ -175,6 +195,7 @@ class AuthController extends Controller
                 'social_id' => $user->id,
                 'social_type' => 'github',
                 'password' => Hash::make('my-github'),
+                'avatar' => $user->avatar,
             ]);
 
             Auth::login($newUser);

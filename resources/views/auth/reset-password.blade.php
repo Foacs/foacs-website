@@ -6,14 +6,14 @@
 <h2 class="ui header">
     <div class="content">Reinitialiser votre mot de passe</div>
 </h2>
-<form action="{{ url('/reset-password') }}" method="POST" class="ui large form">
+<form action="{{ route('password.reset.store') }}" method="POST" class="ui large form">
 	@csrf
 	<input type="hidden" name="token" value="{{ $token }}"><div class="ui satcked segment">
 	<div class="ui satcked segment">
 	    <div class="field">
 	        <div class="ui left icon input">
 	            <i class="user icon"></i>
-				<input type="mail" name="email" placeholder="Address email">
+				<input type="mail" name="email" value="{{ old('email') }}" placeholder="Address email">
 			</div>
 		</div>
 		<div class="field">
@@ -32,8 +32,5 @@
 		<br>
         <a href="{{ route('home') }}" class="ui fluid large button">Annuler</a>
 	</div>
-	@error('password', 'email', 'password_confirmation')
-		<div>{{ $message }}</div>
-	@enderror
 </form>
 @endsection

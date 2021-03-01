@@ -6,65 +6,43 @@
 <div class="ui main container">
 	<div class="ui segments">
 		<div class="ui segment">
-			<h1 class="ui header">Profile</h1>
-			<div class="ui horizontal segments">
-				<div class="ui padded segment">
-					<h2 class="ui header">
-						<img class="ui rounded image" src="{{ $grav_url }}" alt="Gravatar">
-						<div class="content">
-							Prénom NOM
-							<div class="sub header">{{ $user->name }}</div>
-						</div>
-					</h2>
-					<p>Bio</p>
-					@auth
-						@if ($is_connected)
-							<a href="{{ route('profile.edit', $user->id) }}" class="ui button">Editer le profile</a>
-						@endif
-					@endauth
-				</div>
-				<div class="ui segment">
-					<h2 class="ui header">Projets</h2>
-					<div class="ui divided list">
-						<div class="item">
-							<a href="{{ route('projects.show', 1) }}" class="header">RIBZ</a>
-							<div class="description">
-								Structure de l'application et frontend.
-							</div>
-						</div>
-						<div class="item">
-							<a href="{{ route('projects.show', 2) }}" class="header">Commons</a>
-							<div class="description">
-								Contributions diverses.
-							</div>
-						</div>
-						<div class="item">
-							<a href="{{ route('projects.show', 3) }}" class="header">PPHI</a>
-							<div class="description">
-								Architecture de l'application
-							</div>
+			<h1 class="ui header">Profil</h1>
+			@includeWhen($mode == 'show', 'user.profile_show')
+			@includeWhen($mode == 'edit', 'user.profile_edit')
+		</div>
+		<div class="ui segment">
+			<h2 class="ui header">Projets</h2>
+			<div class="ui segment">
+				<div class="ui divided list">
+					@foreach ($user->projects as $project)
+					<div class="item">
+						<a href="{{ route('projects.show', $project) }}" class="header">{{ $project->name }}</a>
+						<div class="description">
+							{{ $project->pivot->role_description }}
 						</div>
 					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
-		@auth
-			@if ($is_connected)
-			<div class="ui segment">
-				<h1 class="ui header">Tokens d'API</h1>
+		@can('manageToken', $user)
+		<div class="ui segment">
+			<h1 class="ui header">Tokens d'API</h1>
+				<div class="ui segment">
 				<form action="{{ route('token.create') }}" method="POST" class="ui center aligned form">
 					@csrf
-					<div class="inline fields">
-						<div class=" field">
+					<div class="three fields">
+						<div class="required field @error('token_name') error @enderror">
+							<label>Nom du token</label>
 							<input type="text" name="token_name" placeholder="Nom du token">
 						</div>
-						<div class="field">
+						<div class="required @error('ability') error @enderror field">
+							<label>Type de token</label>
 							<select name="ability" id="ability" class="ui search dropdown">
 								<option value="" disabled selected>Type</option>
 								<option value="contact:issue">(API) Mail d'erreur</option>
 							</select>
 						</div>
-						<input type="submit" class="ui primary button" value="Créer nouveau token">
 					</div>
 					@if (session()->has('token'))
 					<div class="field">
@@ -72,6 +50,8 @@
 						<input id="token" type="text" readonly value="{{ session()->get('token') }}" >
 					</div>
 					@endif
+					<input type="submit" class="ui primary button" value="Créer nouveau token">
+					<div class="ui divider"></div>
 				</form>
 				<table class="ui celled table">
 					<thead>
@@ -108,13 +88,17 @@
 					</tbody>
 				</table>
 			</div>
-			@endif
-		@endauth
+		</div>
+		@endcan
 	</div>
 </div>
 <script>
 	function confirmDelete() {
-		return confirm("Voulez-vous vraiment supprimer ce token (irréversible),\r\nToutes les applications l'utilisant perdront leurs droits ?")
+		return confirm("Voulez-vous vraiment supprimer ce token (irréversible),\r\ntoutes les applications l'utilisant perdront leurs droits ?")
+	}
+
+	function editProfile() {
+		$('.field.hiddable > input').type = 'text';
 	}
 </script>
 @endsection

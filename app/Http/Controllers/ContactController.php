@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Mail\ContactSupport;
+use App\Mail\Contact;
 use App\Models\Project;
 
 
@@ -58,5 +59,20 @@ class ContactController extends Controller
                 "error"=>"Internal Server Error"
             ], 500)->header('Content-Type', 'application/json');
         }
+    }
+
+    public function contact(Request $request)
+    {
+        $request->validate([
+            'email'=>'required|email',
+            'message'=>'required',
+            'name' => 'required'
+        ]);
+
+        Mail::to('contact@foacs.ovh')
+            ->send(new Contact($request->input('email'), $request->input('name'), $request->input('message')));
+            session()->flash('success-title', 'Email envoyé');
+            session()->flash('success', 'Votre message a été envoyé et sera lu rapidement.');
+        return back();
     }
 }

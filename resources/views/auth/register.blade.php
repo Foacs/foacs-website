@@ -51,13 +51,6 @@
         <input type="submit" class="ui fluid large teal submit button" value="S'inscrire">
         <br>
         <a href="{{ route('home') }}" class="ui fluid large button">Annuler</a>
-        @if ($errors->any())
-        <div class="ui error message">
-            @foreach ($errors->all() as $error)
-                <p>{{ $error }}</p>
-            @endforeach
-        </div>
-        @endif
     </div>
 </form>
 <div class="ui message">

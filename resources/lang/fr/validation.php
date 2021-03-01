@@ -18,7 +18,7 @@ return [
     'after' => ':attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
     'alpha' => 'The :attribute may only contain letters.',
-    'alpha_dash' => 'The :attribute may only contain letters, numbers, dashes and underscores.',
+    'alpha_dash' => 'Le champs :attribute ne peut contenir que des lettres, des chiffres, des tirets et des tirets bas.' ,
     'alpha_num' => 'The :attribute may only contain letters and numbers.',
     'array' => 'The :attribute must be an array.',
     'before' => 'The :attribute must be a date before :date.',
@@ -41,7 +41,7 @@ return [
     'distinct' => 'The :attribute field has a duplicate value.',
     'email' => 'L\':attribute doit être une adresse email valide.',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
-    'exists' => 'The selected :attribute is invalid.',
+    'exists' => 'La valeur pour :attribute séléctionné est invalide.',
     'file' => 'The :attribute must be a file.',
     'filled' => 'The :attribute field must have a value.',
     'gt' => [
@@ -87,16 +87,16 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'Le :attribute doit être d\'au moins :min caractères.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
-    'not_in' => 'The selected :attribute is invalid.',
+    'not_in' => 'La valeur selectionnée pour :attribute est invalide.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
     'password' => 'Le mot de passe est incorrect.',
     'present' => 'The :attribute field must be present.',
-    'regex' => 'The :attribute format is invalid.',
+    'regex' => 'Le format de :attribute est invalide.',
     'required' => 'Le champs :attribute est requis.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
@@ -104,7 +104,7 @@ return [
     'required_with_all' => 'The :attribute field is required when :values are present.',
     'required_without' => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
-    'same' => ':attribute et :other doivent correspondre.',
+    'same' => 'Les champs :attribute et :other doivent correspondre.',
     'size' => [
         'numeric' => 'The :attribute must be :size.',
         'file' => 'The :attribute must be :size kilobytes.',
@@ -148,7 +148,10 @@ return [
     */
 
     'attributes' => [
+        'user' => 'utilisateur',
+        'phone_number' => 'Numéro de téléphone',
         'password' => 'mot de passe',
+        'current_password' => 'mot de passe actuel',
         'name' => 'nom',
         'EULA_agree' => 'conditions générales d\'utilisation',
         'password_confirmation' => 'confirmer mot de passe'

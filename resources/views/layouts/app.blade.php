@@ -29,10 +29,14 @@
                 left: 0;
                 z-index: 1000;
             }
+
+            .ui.ui.container.flash > div {
+                margin-bottom: 0;
+            }
         </style>
         <script type="text/javascript">
             $(document).ready(() => {
-                $('.flash').delay(4000).fadeOut(300);
+                $('.flash').delay(3000).fadeOut(300);
             });
         </script>
         @yield('styles')
@@ -42,15 +46,11 @@
             <div class="ui container">            
                 <a href="{{ route('home') }}" class="header {{ $active=='home'?'active':'' }} item">Foacs</a>
                 <a href="{{ route('projects.index') }}" class="{{ $active=='projects'?'active':'' }} item">Projets</a>
+                <a href="{{ route('profile.index') }}" class="{{ $active=='users'?'active':'' }} item">Membres</a>
                 <a href="{{ route('about') }}" class="{{ $active=='about'?'active':'' }} item">A propos</a>
                 
                 <div class="right menu">
-                    <div class="item">
-                        <div class="ui icon input">
-                            <input type="text" placeholder="Chercher...">
-                            <i class="search link icon"></i>
-                        </div>
-                    </div>
+                    
                     @if (Route::has('auth.login'))
                         @auth
                             <a href="{{ route('profile.show', ['id' => Auth::id()]) }}" class="ui item">{{ Auth::user()->name }}</a>
@@ -120,7 +120,7 @@
                         <div class="ui link list">
                             <a href="" class="item">Sitemap</a>
                             <a href="{{ route('contact') }}" class="item">Contact</a>
-                            <a href="" class="item">CGU</a>
+                            <a href="{{ route('eula') }}" class="item">CGU</a>
                         </div>
                     </div>
                     <div class="five wide column">

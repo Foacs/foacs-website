@@ -14,21 +14,30 @@ Route::get('/register', [AuthController::class, 'register'])
 Route::post('/register', [AuthController::class, 'create'])
 	->middleware('guest')->name('auth.create');
 
-Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])
-	->middleware('guest')->name('password.request');
-Route::post('/forgot-password', [AuthController::class, 'forgotPasswordStore'])
-	->middleware('guest')->name('password.email');
+// Change password
+Route::get('/change-password/{user}', [AuthController::class, 'passwordChange'])
+	->middleware(['auth', 'can:changePassword,user'])->name('password.change');
+Route::post('/change-password/{user}', [AuthController::class, 'passwordChangeStore'])
+	->middleware(['auth', 'can:changePassword,user'])->name('password.change.store');
 
+// Ask for reset password 
+Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])
+	->middleware('guest')->name('password.forgot');
+Route::post('/forgot-password', [AuthController::class, 'forgotPasswordStore'])
+	->middleware('guest')->name('password.forgot.store');
+
+// Reset password
 Route::get('/reset-password/{token}', [AuthController::class, 'passwordReset'])
 	->middleware('guest')->name('password.reset');
-Route::post('/reset-password', [AuthController::class, 'passwordUpdate'])
-	->middleware('guest')->name('password.update');
+Route::post('/reset-password', [AuthController::class, 'passwordResetStore'])
+	->middleware('guest')->name('password.reset.store');
 
+// Verify email
 Route::get('/verify-email', [AuthController::class, 'emailVerify'])
 	->middleware('auth')->name('verification.notice');
 Route::get('/verify-email/{id}/{hash}', [AuthController::class, 'emailVerifyStore'])
 	->middleware(['auth', 'signed', 'throttle:6,1'])->name('verification.verify');
-
+// Resend email
 Route::post('/email/verification-notification', [AuthController::class, 'verificationNotification'])
 	->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 

@@ -69,7 +69,7 @@
 					<p>
 						Foacs se donne pour objectif de soutenir les idées de projet. Chaque initiative est dument étudiée pour apporter le soutien nécessaire.<br>
 						Foacs tente d'apporter son expertise et ses conseils pour le développement de projets proposés par la communauté.<br/>
-						Rejoignez-nous sur Discord pour discuter de vos idées.
+						Rejoignez-nous sur <a href="https://discord.gg/VWX9pybWvT">Discord</a> pour discuter de vos idées.
 					</p>
 				</div>
 			</div>
@@ -80,8 +80,8 @@
 					<h3 class="ui header">Partager</h3>
 					<h4 class="ui header">Partager les connaissances.</h4>
 					<p>
-						Profiter de nos savoirs tout en partageant les vôtres. Foacs vous permet d'acquérir des connaissances que vous pouvez utiliser comme bon vous sied.
-						Mais également de faire profiter le reste de la communauté des vôtres. 
+						Profiter de nos savoirs tout en partageant les vôtres. Notre volonté est de partager les connaissances et de faire de Foacs un pôle de savoir.
+						Ainsi, nous souhaitons offrir la posibilité de donner et de reçevoir  
 					</p>
 				</div>
 			</div>
