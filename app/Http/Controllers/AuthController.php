@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
@@ -29,7 +30,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             session()->flash('success', 'Vous êtes désormais connecté');
-            session()->flash('success-title', 'Connexion réussit.');
+            session()->flash('success-title', 'Connexion réussie.');
     		return redirect()->route('home');
     	}
 
@@ -61,7 +62,7 @@ class AuthController extends Controller
         Auth::login($user);
         session()->flash('success', 'Votre compte a été créé.');
         session()->flash('success-title', 'Compte créé.');
-        return redirect()->route('auth.login');
+        return redirect()->route('home');
     }
 
 
@@ -183,7 +184,7 @@ class AuthController extends Controller
     public function handleGithubCallback()
     {
         $user = Socialite::driver('github')->user();
-        $findUser = User::where('social_id', $user->id)->first();
+        $findUser = User::where('email', $user->email)->first();
 
         if ($findUser) {
             Auth::login($findUser);

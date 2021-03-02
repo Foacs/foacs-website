@@ -651,7 +651,7 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #4183C4;
+  color: #2d5b89;
   text-decoration: none;
 }
 
@@ -16339,7 +16339,7 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: #4183C4;
+  color: #2d5b89;
 }
 
 .ui.list .list > a.item:hover,
@@ -16351,7 +16351,7 @@ ol.ui.list ol li,
 
 .ui.list .list > a.item i.icon,
 .ui.list > a.item i.icon {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 /* Header Link */
@@ -16359,7 +16359,7 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: #4183C4 !important;
+  color: #2d5b89 !important;
 }
 
 .ui.list .list > .item a.header:hover,
@@ -19711,7 +19711,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.steps .step.active .title {
-  color: #4183C4;
+  color: #2d5b89;
 }
 
 .ui.ordered.steps .step.active:before,
@@ -20053,7 +20053,7 @@ ol.ui.horizontal.list li:before,
 /* Link */
 
 .ui.breadcrumb a {
-  color: #4183C4;
+  color: #2d5b89;
 }
 
 .ui.breadcrumb a:hover {

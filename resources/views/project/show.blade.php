@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title' , 'Projets')
+@section('title' , 'Projet '.$current->name)
+
+@section('description')
+	{{ $current->description }}
+@endsection
 
 @section('content')
 <div class="ui main container">
@@ -9,7 +13,7 @@
 			<div class="one column row">
 				<div class="column">
 					<div class="ui center aligned container">
-						<h2 class="ui header">Les projets</h2>
+						<h1 class="ui header">Les projets</h1>
 					</div>
 					
 				</div>
@@ -38,12 +42,12 @@
 				<div class="twelve wide streched column">
 					<div class="ui satcked segment">
 						@if(isset($current))
-							<h3 class="ui header">
+							<h2 class="ui header">
 								<div class="centent">
 									{{ $current->name }}
 									@if($current->trashed()) <div class="sub header">Supprimé (non visible publiquement)</div>@endif
 								</div>
-							</h3>
+							</h2>
 							<p>
 								{{ $current->description }}
 							</p>

@@ -50,7 +50,7 @@ class UserController extends Controller
     public function save(Request $request, User $user)
     {
         $request->validate([
-            'phone_number' => 'regex:/^[0-9\-]+$/'
+            'phone_number' => 'regex:/^[0-9\-]*$/'
         ]);
 
         $user->fill($request->all())->save();

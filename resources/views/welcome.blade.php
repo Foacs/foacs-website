@@ -42,15 +42,15 @@
 					<h3 class="ui header">Open source</h3>
 					<h4 class="ui header">Développement pour et par la communauté.</h4>
 					<p>
-						Foacs s'est donné comme objectif de mettre ses compétences au service du plus grand nombre. Elle met son expertise à disposition des autres par le biais de travaux open source.<br />
-						Ainsi, quelle que soit la platform ou les technologies employées, les productions de Foacs sont open source.
+						Foacs s'est donnée comme objectif de mettre ses compétences au service du plus grand nombre. Elle met son expertise à disposition des autres par le biais de travaux open source.<br />
+						Ainsi, quelle que soit la platforme ou les technologies employées, les productions de Foacs sont open source.
 						
 					</p>
 				</div>
 			</div>
 			<div class="center aligned column">
-				<a href="http://opensource.org/" target="_blank" class="ui small image">
-					<img src="https://opensource.org/files/OSI_Standard_Logo.svg" alt="Open Source Initiative">
+				<a href="http://opensource.org/" target="_blank" rel="noreferrer" class="ui small image">
+					<img src="https://opensource.org/files/OSI_Standard_Logo.svg" width="206.25" height="150" alt="Open Source Initiative">
 				</a>
 				<br>
 				<i >* Ce site n'est ni affilié ni approuvé par l'Open Source Initiative</i>
@@ -59,7 +59,7 @@
 		<div class="two column row">
 			<div class="center aligned column">
 				<div class="ui small image">
-					<img src="{{ asset('/img/idea.svg') }}" alt="Soutenir les idées">
+					<img src="{{ asset('/img/idea.svg') }}" width="150" height="150" alt="Soutenir les idées">
 				</div>
 			</div>
 			<div class="column">
@@ -87,7 +87,7 @@
 			</div>
 			<div class="center aligned column">
 				<div class="ui small image">
-					<img src="{{ asset('/img/sharing.svg') }}" alt="Partager les connaissances">
+					<img src="{{ asset('/img/sharing.svg') }}" width="150" height="150" alt="Partager les connaissances">
 				</div>
 			</div>
 		</div>

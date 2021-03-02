@@ -59,7 +59,7 @@
         <div id="license" class="ui segment">
             <h3 class="ui header">5. Logiciels utilisés</h3>
             <p>
-                Le site web utilise <a href="https://laravel.com" target="_blank">Laravel</a> sous licence open source MIT. Et est lui-même sous licence open source <a href="http://cecill.info/licences/Licence_CeCILL_V2.1-fr.html" target="_blank">CeCILL.</a><br>
+                Le site web utilise <a href="https://laravel.com" target="_blank">Laravel</a> sous licence open source MIT, et est lui-même sous licence open source <a href="http://cecill.info/licences/Licence_CeCILL_V2.1-fr.html" target="_blank">CeCILL.</a><br>
                 Le code source du site web est disponible sur <a href="https://github.com/Foacs/foacs-website" target="_blank">GitHub</a>.<br>
             </p>
         </div>
@@ -74,7 +74,7 @@
         <div id="liability" class="ui segment">
             <h3 class="ui header">7. Responsabilité</h3>
             <p>
-                Foacs met tout en oeuvre pour offrir aux Utilisateur des informations et/ou des outils disponibles et mis à jour. Pour autant, elle ne saurait être tenue pour responsable en cas d'erreurs,
+                Foacs met tout en oeuvre pour offrir aux Utilisateurs des informations et/ou des outils disponibles et mis à jour. Pour autant, elle ne saurait être tenue pour responsable en cas d'erreurs,
                 d'absence de disponibilité des fonctionnalités et/ou de la présence de virus sur le site web. <br>
                 Foacs ne saurait garantir l'exactitude, la complétude, l'actualité et l'exhaustivité des informations diffusées sur le site web. Chaque Utilisateur contribuant au contenu s'engage à vérifier 
                 la véracité des informations obtenues auprès des personnes concernées. <br>
@@ -84,10 +84,10 @@
         <div id="data" class="ui segment">
             <h3 class="ui header">8. Données personnelles</h3>
             <p>
-                Foacs est susceptible de recueillir, conserver et utiliser les informations concernant les Utilisateur, leurs activités sur le site web et/ou leurs informations de connexion.<br>
+                Foacs est susceptible de recueillir, conserver et utiliser les informations concernant les Utilisateurs, leurs activités sur le site web et/ou leurs informations de connexion.<br>
                 <h4 class="ui header">8.1 Traitement des données</h4>
                 <p>
-                    Finalité: le traitement a pour objet la gestion des Utilisateur du Site. Il permet à Foacs: 
+                    Finalité: le traitement a pour objet la gestion des Utilisateurs du Site. Il permet à Foacs: 
                     <ul>
                         <li>de permettre à l'Utilisateur de renseigner un profil public;</li>
                         <li>de permettre à l'Utilisateur d'indiqué sa contribution aux projets de Foacs;</li>
@@ -97,7 +97,7 @@
                     <ul>
                         <li>données d'identifications;</li>
                         <li>coordonnées de contact;</li>
-                        <li>données de connexion au compte (adresses IP, noms d'utilisateurs;</li>
+                        <li>données de connexion au compte (adresses IP, noms d'utilisateurs);</li>
                     </ul>
                     <br>
                     Base légale du traitement : le e) du 1. de l’article 6 du Règlement Général sur la Protection des Données – 
@@ -146,6 +146,6 @@
             </p>
         </div>
     </div>
-    <i>Publié le 01/03/2021</i>
+    <i>Publié le 01/03/2021 - Mis à jour le 02/03/2021</i>
 </div>
 @endsection

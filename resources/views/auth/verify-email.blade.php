@@ -33,7 +33,7 @@
 				<div class="column">
 					<form method="POST" action="{{ route('verification.send') }}" class="ui center aligned container">
 						@csrf
-						<input type="button" class="ui primary button" value="Renvoyé l'email">
+						<input type="button" class="ui primary button" value="Renvoyer l'email">
 					</form>
 				</div>
 				<div class="column">

@@ -40,7 +40,7 @@ class AuthServiceProvider extends ServiceProvider
                 ->line('S\'il vous plait cliquer sur le bouton ci-dessous pour vérfier votre adresse email.')
                 ->action('Vérifier l\'adresse email', $url)
                 ->line('Si vous n\'avez pas créé de compte, aucune autre action n\'est requise.')
-                ->salutation('Cordialement,\r\nFoacs');
+                ->salutation('Cordialement, Foacs');
         });
 
         ResetPassword::toMailUsing(function ($notifiable, $token){
@@ -51,7 +51,7 @@ class AuthServiceProvider extends ServiceProvider
             ->action('Réinitialiser le mot de passe', route('password.reset', $token))
             ->line('Ce lien de réinitialisation du mot de passe expirera dans 60 minutes.')
             ->line('Si vous n\'avez pas demandé de réinitialisation de mot de passe, aucune autre action n\'est requise.')
-            ->salutation('Cordialement,\r\nFoacs');
+            ->salutation('Cordialement, Foacs');
         });
     }
 }

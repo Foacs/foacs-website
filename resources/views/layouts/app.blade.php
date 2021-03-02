@@ -3,26 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=6.0">
+        <meta name="description" content="@yield('description', 'Foacs est une association de droit, ayant pour objectif de promouvoir le développement 
+        d\'application open source.')">
 
         <title>Foacs - @yield('title')</title>
-
+        
+        <link rel="preload" href="{{ URL::asset('/css/themes/default/assets/fonts/brand-icons.woff2') }}" as="font" type="font/woff2" crossorigin>
         <link rel="shortcut icon" href="{{ asset('/img/icon.ico') }}"  ttype="image/x-icon">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+        <link rel="canonical" href="https://foacs.ovh/">
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/semantic.min.css') }}">
-        <script
-          src="https://code.jquery.com/jquery-3.1.1.min.js"
-          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-          crossorigin="anonymous"></script>
-        <script
-            src="{{ URL::asset('css/semantic.min.js') }}"></script>
         <style>
-            body {
-                font-family: 'Nunito';
-            }
-
             .ui.container.flash {
                 position: absolute;
                 right: 0;
@@ -34,12 +26,26 @@
                 margin-bottom: 0;
             }
         </style>
+        @yield('styles')
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script async src="{{ URL::asset('css/semantic.min.js') }}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZM8792RSV"></script>
         <script type="text/javascript">
             $(document).ready(() => {
                 $('.flash').delay(3000).fadeOut(300);
             });
         </script>
-        @yield('styles')
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-3ZM8792RSV');
+        </script>
+        @yield('script', '')
     </head>
     <body>
         <div class="ui pointing menu">
@@ -126,10 +132,10 @@
                     <div class="five wide column">
                         <h4 class="ui header">Liens</h4>
                         <ui class="ui link list">
-                            <a href="https://github.com/Foacs" target="_blank" class="item">
+                            <a href="https://github.com/Foacs" target="_blank" rel="noreferrer" class="item">
                                 <i class="github icon"></i>Github
                             </a>
-                            <a href="https://discord.gg/VWX9pybWvT" target="_blank" class="item">
+                            <a href="https://discord.gg/VWX9pybWvT" target="_blank" rel="noreferrer" class="item">
                                 <i class="discord icon"></i>Discord
                             </a>
                         </ui>

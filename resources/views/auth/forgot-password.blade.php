@@ -6,7 +6,7 @@
 <h2 class="ui header">
     <div class="content">Mot de passe oublié</div>
 </h2>
-<form action="{{ route('password.email') }}" method="POST" class="ui large form">
+<form action="{{ route('password.forgot.store') }}" method="POST" class="ui large form">
 	@csrf
 	<div class="ui satcked segment">
         <div class="field">
