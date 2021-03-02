@@ -183,7 +183,10 @@ class AuthController extends Controller
 
     public function handleGithubCallback()
     {
-        $user = Socialite::driver('github')->user();
+        
+        $user = Socialite::driver('github')->redirectUrl('https://foacs.ovh/login/github/callback')->user();
+        return redirect()->route('auth.github.login');
+        
         $findUser = User::where('email', $user->email)->first();
 
         if ($findUser) {

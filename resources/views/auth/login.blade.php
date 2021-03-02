@@ -9,15 +9,6 @@
 <form method="POST" action="{{ route('auth.authenticate') }}" class="ui large form">
     @csrf
     <div class="ui satcked segment">
-        <a href="{{ route('auth.github.login') }}">
-            <div class="ui black button">
-                <i class="github icon"></i>
-                Se connecter avec github
-            </div>
-        </a>
-        <div class="ui horizontal divider">
-            OU
-        </div>
         <div class="field">
             <div class="ui left icon input">
                 <i class="user icon"></i>

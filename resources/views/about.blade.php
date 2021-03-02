@@ -7,7 +7,7 @@
     <div class="ui center aligned vertical segment">
         <h2 class="ui header">À propos</h2>
         <p>
-            Foacs est une assocation de fait qui a pour but de soutenir le développement d'applications numériques libres (<a href="https://opensource.org" target="_blank"><i>(en)</i>open source</a>).<br /> 
+            Foacs est une assocation de fait qui a pour but de soutenir le développement d'applications numériques libres (<a href="https://opensource.org" target="_blank" rel="noreferrer"><i>(en)</i>open source</a>).<br /> 
             Elle se concentre sur le développement et le soutien, à l'aide de ses membres, de projets numériques libres ainsi que le partage de connaissances dans ce domaine.
             
         </p>

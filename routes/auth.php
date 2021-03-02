@@ -45,7 +45,7 @@ Route::get('/logout', [AuthController::class, 'logout'])
 	->middleware('auth')->name('auth.logout');
 
 Route::get('/login/github', function () {
-	return Socialite::driver('github')->redirect();
+	return Socialite::driver('github')->redirectUrl('https://foacs.ovh/login/github/callback')->redirect();
 })
 	->name('auth.github.login');
 

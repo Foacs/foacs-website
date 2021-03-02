@@ -12,7 +12,7 @@
         <link rel="preload" href="{{ URL::asset('/css/themes/default/assets/fonts/brand-icons.woff2') }}" as="font" type="font/woff2" crossorigin>
         <link rel="shortcut icon" href="{{ asset('/img/icon.ico') }}"  ttype="image/x-icon">
         <!-- Fonts -->
-        <link rel="canonical" href="https://foacs.ovh/">
+        <link rel="canonical" href="{{ URL::current() }}">
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/semantic.min.css') }}">
         <style>
             .ui.container.flash {
